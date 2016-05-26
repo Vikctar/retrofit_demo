@@ -1,7 +1,9 @@
-package com.vikcandroid.retrofitdemo;
+package com.vikcandroid.retrofitdemo.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.vikcandroid.retrofitdemo.R;
 
 public class MainActivity extends AppCompatActivity {
 
