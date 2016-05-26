@@ -4,8 +4,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- *  To send network requests to an API, we need to use the Retrofit Builder class and specify the base URL for the service.
- *  Here BASE_URL – it is basic URL of our API. We will use this URL for all requests later
+ * To send network requests to an API, we need to use the Retrofit Builder class and specify the base URL for the service.
+ * Here BASE_URL – it is basic URL of our API. We will use this URL for all requests later
  */
 public class ApiClient {
 

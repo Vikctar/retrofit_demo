@@ -12,7 +12,7 @@ import retrofit2.http.Query;
  * about the parameters and request method.
  * In addition, the return value is always a parameterized Call<T> object such as Call<MovieResponse>.
  * For instance, the interface defines each endpoint in the following way.
- *
+ * <p/>
  * So, using this route the retrofit will generate the following
  * URL:http://api.themoviedb.org/3/movie/top_rated?api_key=12345678910111213
  * Each endpoint specifies an annotation of the HTTP method (GET, POST, etc.)

@@ -1,7 +1,7 @@
 package com.vikcandroid.retrofitdemo.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,9 +22,8 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final String TAG = MainActivity.class.getSimpleName();
-
     private static final String API_KEY = "52e1d2bd9f3c80de7894de9939545286";
+    public final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movieList = response.body().getResults();
-                Log.d(TAG, "number of movies received: " +movieList.size());
+                Log.d(TAG, "number of movies received: " + movieList.size());
                 recyclerView.setAdapter(new MoviesAdapter(movieList,
                         R.layout.list_item, getApplicationContext()));
             }

@@ -15,12 +15,17 @@ import java.util.List;
 
 /**
  * Adapter is a common pattern which helps to bind view and data.
- *
  */
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
     private List<Movie> movieList;
     private int rowLayout;
     private Context context;
+
+    public MoviesAdapter(List<Movie> movieList, int rowLayout, Context context) {
+        this.movieList = movieList;
+        this.rowLayout = rowLayout;
+        this.context = context;
+    }
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -56,11 +61,5 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             movieDescription = (TextView) itemView.findViewById(R.id.description);
             rating = (TextView) itemView.findViewById(R.id.rating);
         }
-    }
-
-    public MoviesAdapter(List<Movie> movieList, int rowLayout, Context context) {
-        this.movieList = movieList;
-        this.rowLayout = rowLayout;
-        this.context = context;
     }
 }
