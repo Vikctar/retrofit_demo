@@ -2,10 +2,13 @@ package com.vikcandroid.retrofitdemo.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.vikcandroid.retrofitdemo.R;
+import com.vikcandroid.retrofitdemo.adapter.MoviesAdapter;
 import com.vikcandroid.retrofitdemo.model.Movie;
 import com.vikcandroid.retrofitdemo.model.MovieResponse;
 import com.vikcandroid.retrofitdemo.rest.ApiClient;
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
                     "www.themoviedb.org/", Toast.LENGTH_LONG).show();
         }
 
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         Call<MovieResponse> call = apiInterface.getTopRatedMovies(API_KEY);
@@ -41,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movieList = response.body().getResults();
                 Log.d(TAG, "number of movies received: " +movieList.size());
+                recyclerView.setAdapter(new MoviesAdapter(movieList,
+                        R.layout.list_item, getApplicationContext()));
             }
 
             @Override
