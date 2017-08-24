@@ -45,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movieList = response.body().getResults();
+                // Apparently am obsessed with logs.
+                for (Movie movie : movieList) {
+                    Log.d(TAG, movie.getTitle());
+                }
+
                 Log.d(TAG, "number of movies received: " + movieList.size());
                 recyclerView.setAdapter(new MoviesAdapter(movieList,
                         R.layout.list_item, getApplicationContext()));

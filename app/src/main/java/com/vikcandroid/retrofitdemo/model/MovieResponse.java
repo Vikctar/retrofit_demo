@@ -11,6 +11,11 @@ import java.util.List;
 
 public class MovieResponse {
 
+    /*
+        There is no point in annotating the fields as serialized
+        the converter factory already is doing this for us.
+     */
+
     @SerializedName("page")
     private int page;
 

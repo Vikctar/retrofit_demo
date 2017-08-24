@@ -8,6 +8,11 @@ import java.util.List;
 
 public class Movie {
 
+       /*
+        There is no point in annotating the fields as serialized
+        the converter factory already is doing this for us.
+     */
+
     @SerializedName("poster_path")
     private String posterPath;
 
